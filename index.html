@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./assets/styles.css">
     <script src="https://kit.fontawesome.com/012b6cbaec.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -26,11 +27,31 @@
                 <video src="./videos/Js drag & drop - Chrome 2020-09-27 20-54-43.mp4"></video>
             </div>
             <div class="video-block__controls">
-                <div class="controls__progress"></div>
-                <div class="controls__panel"></div>
+                <div class="controls__progress">
+                    <div class="progress__gauge"></div>
+                </div>
+                <div class="controls__panel">
+                   <div class="panel__left">
+                        <button class="panel__play-btn"><i class="fas fa-play"></i></button>
+                        <button class="panel__volume-btn"><i class="fas fa-volume-up"></i></button>
+                        
+                        <button class="panel__backward-btn"><i class="fas fa-backward"></i></button>
+                        <button class="panel__forward-btn"><i class="fas fa-forward"></i></button>
+                        <div class="panel__time">
+                            <span class="time__current">0:13</span>
+                            |
+                            <span class="time__duration">14:13</span>
+                        </div>
+                   </div>
+                   <div class="panel__right">
+                       <button class="panel__option"><i class="fas fa-cog"></i></button>
+                       <button class="panel__expand">
+                           <i class="fas fa-expand"></i>
+                       </button>
+                   </div>
+                </div>
             </div>
         </div>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid sit eum ratione quisquam, dolorum ipsam, cum alias labore vero nostrum deleniti ipsum nihil explicabo recusandae, itaque qui ea quo debitis?</p>
     </main>
 </body>
 </html>
