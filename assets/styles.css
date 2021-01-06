@@ -73,7 +73,7 @@ video {
 .progress__gauge {
   position: absolute;
   height: 100%;
-  width: 40%;
+
   background-color: rgb(236 236 236);
 }
 

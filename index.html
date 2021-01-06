@@ -25,11 +25,11 @@
         <div class="main__video-block">
             <div class="video-block__container">
                 <video src="./videos/wlzjs.mp4" id="jsVideo"></video>
-                <p>lalala</p>
+                
             </div>
             <div class="video-block__controls">
-                <div class="controls__progress">
-                    <div class="progress__gauge"></div>
+                <div class="controls__progress" id="jsProgress">
+                    <div class="progress__gauge" id="jsProgressGauge"></div>
                 </div>
                 <div class="controls__panel">
                    <div class="panel__left">
@@ -41,13 +41,13 @@
                             </div>
                         </div>
                         
-                        <button class="panel__backward-btn"><i class="fas fa-backward"></i></button>
-                        <button class="panel__forward-btn"><i class="fas fa-forward"></i></button>
+                        <button class="panel__backward-btn" data-sec="5" id="jsBackward"><i class="fas fa-backward"></i></button>
+                        <button class="panel__forward-btn" data-sec="5" id="jsForward"><i class="fas fa-forward"></i></button>
                         <div class="panel__time">
                             <span class="time__current">0:13</span>
                             |
                             <span class="time__duration">14:13</span>
-                            <p>nonono</p>
+                            
                         </div>
                    </div>
                    <div class="panel__right">
