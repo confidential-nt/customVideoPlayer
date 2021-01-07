@@ -22,42 +22,55 @@
         </div>
     </header>
     <main class="main">
-        <div class="main__video-block">
-            <div class="video-block__container">
+        <div class="main__video-block" id="jsVideoBlock">
+            <div class="video-block__container" >
                 <video src="./videos/wlzjs.mp4" id="jsVideo"></video>
-                
-            </div>
-            <div class="video-block__controls">
-                <div class="controls__progress" id="jsProgress">
-                    <div class="progress__gauge" id="jsProgressGauge"></div>
-                </div>
-                <div class="controls__panel">
-                   <div class="panel__left">
-                        <button class="panel__play-btn" id="jsPlayBtn"><i class="fas fa-play"></i></button>
-                        <div class="panel__volume-container">
-                            <button class="panel__volume-btn" id="jsVolumeBtn"><i class="fas fa-volume-up"></i></button>
-                            <div class="panel__volume-input">
-                                <input id="jsVolumeRange" type="range" min="0" max="1" step="0.1" value="0.5">
+                <div class="video-block__controls" id="jsControls">
+                    <div class="controls__option hide" id="jsOptionMenu">
+                        <h2>재생속도</h2>
+                        <ul>
+                            <li data-rate="0.25">x0.25</li>
+                            <li data-rate="0.5">x0.5</li>
+                            <li data-rate="0.75">x0.75</li>
+                            <li data-rate="1">x1</li>
+                            <li data-rate="1.25">x1.25</li>
+                            <li data-rate="1.5">x1.5</li>
+                            <li data-rate="1.75">x1.75</li>
+                            <li data-rate="2">x2</li>
+                        </ul>
+                    </div>
+                    <div class="controls__progress" id="jsProgress">
+                        <div class="progress__gauge" id="jsProgressGauge"></div>
+                    </div>
+                    <div class="controls__panel">
+                       <div class="panel__left">
+                            <button class="panel__play-btn" id="jsPlayBtn"><i class="fas fa-play"></i></button>
+                            <div class="panel__volume-container">
+                                <button class="panel__volume-btn" id="jsVolumeBtn"><i class="fas fa-volume-up"></i></button>
+                                <div class="panel__volume-input">
+                                    <input id="jsVolumeRange" type="range" min="0" max="1" step="0.1" value="0.5">
+                                </div>
                             </div>
-                        </div>
-                        
-                        <button class="panel__backward-btn" data-sec="5" id="jsBackward"><i class="fas fa-backward"></i></button>
-                        <button class="panel__forward-btn" data-sec="5" id="jsForward"><i class="fas fa-forward"></i></button>
-                        <div class="panel__time">
-                            <span class="time__current">0:13</span>
-                            |
-                            <span class="time__duration">14:13</span>
                             
-                        </div>
-                   </div>
-                   <div class="panel__right">
-                       <button class="panel__option"><i class="fas fa-cog"></i></button>
-                       <button class="panel__expand">
-                           <i class="fas fa-expand"></i>
-                       </button>
-                   </div>
+                            <button class="panel__backward-btn" data-sec="5" id="jsBackward"><i class="fas fa-backward"></i></button>
+                            <button class="panel__forward-btn" data-sec="5" id="jsForward"><i class="fas fa-forward"></i></button>
+                            <div class="panel__time">
+                                <span class="time__current" id="jsCurrent">00:00:00</span>
+                                |
+                                <span class="time__duration" id="jsDuration">00:00:00</span>
+                                
+                            </div>
+                       </div>
+                       <div class="panel__right">
+                           <button class="panel__option" id="jsOptionBtn"><i class="fas fa-cog"></i></button>
+                           <button class="panel__expand" id="jsFullscrBtn">
+                               <i class="fas fa-expand"></i>
+                           </button>
+                       </div>
+                    </div>
                 </div>
             </div>
+           
         </div>
     </main>
 
