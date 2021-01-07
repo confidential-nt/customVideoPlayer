@@ -81,11 +81,11 @@ video {
 
 .controls__option {
   font-size: 0.6rem;
-  height: 5rem;
+  height: 8rem;
   width: 10rem;
   position: absolute;
   right: 2rem;
-  top: -6rem;
+  top: -9rem;
   background-color: black;
   border-radius: 0.4rem;
   color: #fff;
@@ -101,10 +101,17 @@ video {
 .controls__option li {
   font-size: 1rem;
   cursor: pointer;
+  transition: all 200ms ease-in-out;
+  padding: 0.3em;
+}
+
+.controls__option li:hover {
+  background-color: #fff;
+  color: black;
 }
 
 .controls__option li:not(:last-child) {
-  margin-bottom: 1.2em;
+  margin-bottom: 0.3em;
 }
 
 .hide {
