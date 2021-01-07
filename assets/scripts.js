@@ -32,6 +32,7 @@ function handleVideoSpeed() {
 }
 
 function handleOptionMenu() {
+  optionMenu.scrollTop = 0;
   optionMenu.classList.toggle("hide");
   controls.classList.toggle("opacity");
 }
