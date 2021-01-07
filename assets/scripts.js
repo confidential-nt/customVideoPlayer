@@ -15,6 +15,8 @@ const durationText = document.querySelector("#jsDuration");
 const speedOptions = document.querySelectorAll(".controls__option li");
 const videoBlock = document.querySelector("#jsVideoBlock");
 
+let clickReady = false;
+
 video.volume = volumeRange.value;
 volumeBtn.innerHTML = `<i class="fas fa-volume-up"></i>`;
 
@@ -127,6 +129,10 @@ optionBtn.addEventListener("click", handleOptionMenu);
 fullscrBtn.addEventListener("click", handleFullscreen);
 volumeRange.addEventListener("input", handleVolumeRange);
 progress.addEventListener("click", handleVideoProgress);
+progress.addEventListener("mousemove", (e) => {
+  if (!clickReady) return;
+  handleVideoProgress(e);
+});
 speedOptions.forEach((op) => op.addEventListener("click", handleVideoSpeed));
 videoBlock.addEventListener("fullscreenchange", () => {
   if (document.fullscreen) {
@@ -137,3 +143,10 @@ videoBlock.addEventListener("fullscreenchange", () => {
     fullscrBtn.innerHTML = `<i class="fas fa-expand"></i>`;
   }
 });
+window.addEventListener("mousedown", () => {
+  clickReady = true;
+});
+window.addEventListener("mouseup", () => {
+  clickReady = false;
+});
+//drag해서바뀌는것도..
