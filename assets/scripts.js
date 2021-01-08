@@ -5,8 +5,6 @@ const volumeRange = document.querySelector("#jsVolumeRange");
 const video = document.querySelector("#jsVideo");
 const progress = document.querySelector("#jsProgress");
 const progressGauge = document.querySelector("#jsProgressGauge");
-const backwardBtn = document.querySelector("#jsBackward");
-const forwardBtn = document.querySelector("#jsForward");
 const optionBtn = document.querySelector("#jsOptionBtn");
 const optionMenu = document.querySelector("#jsOptionMenu");
 const fullscrBtn = document.querySelector("#jsFullscrBtn");
@@ -14,6 +12,7 @@ const currentText = document.querySelector("#jsCurrent");
 const durationText = document.querySelector("#jsDuration");
 const speedOptions = document.querySelectorAll(".controls__option li");
 const videoBlock = document.querySelector("#jsVideoBlock");
+const skipBtns = document.querySelectorAll("[data-sec]");
 
 let clickReady = false;
 
@@ -29,8 +28,7 @@ function handleFullscreen() {
 }
 
 function handleVideoSpeed() {
-  const speed = this.dataset.rate;
-  video.playbackRate = parseFloat(speed, 10);
+  video.playbackRate = parseFloat(this.dataset.rate, 10);
 }
 
 function handleOptionMenu() {
@@ -49,14 +47,8 @@ function getTimeframe(time) {
   }`;
 }
 
-function handleBackward() {
-  const sec = this.dataset.sec;
-  video.currentTime -= parseInt(sec, 10);
-}
-
-function handleForward() {
-  const sec = this.dataset.sec;
-  video.currentTime += parseInt(sec, 10);
+function handleSkip() {
+  video.currentTime += parseInt(this.dataset.sec, 10);
 }
 
 function handleVideoProgress(e) {
@@ -123,16 +115,15 @@ video.addEventListener("loadedmetadata", () => {
   durationText.innerText = durationTime;
 });
 volumeBtn.addEventListener("click", toggleVolumeBtn);
-backwardBtn.addEventListener("click", handleBackward);
-forwardBtn.addEventListener("click", handleForward);
+skipBtns.forEach((btn) => btn.addEventListener("click", handleSkip));
 optionBtn.addEventListener("click", handleOptionMenu);
 fullscrBtn.addEventListener("click", handleFullscreen);
 volumeRange.addEventListener("input", handleVolumeRange);
 progress.addEventListener("click", handleVideoProgress);
-progress.addEventListener("mousemove", (e) => {
-  if (!clickReady) return;
-  handleVideoProgress(e);
-});
+progress.addEventListener(
+  "mousemove",
+  (e) => clickReady && handleVideoProgress(e)
+);
 speedOptions.forEach((op) => op.addEventListener("click", handleVideoSpeed));
 videoBlock.addEventListener("fullscreenchange", () => {
   if (document.fullscreen) {
@@ -149,4 +140,3 @@ window.addEventListener("mousedown", () => {
 window.addEventListener("mouseup", () => {
   clickReady = false;
 });
-//drag해서바뀌는것도..
